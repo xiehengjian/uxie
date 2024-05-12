@@ -1,7 +1,7 @@
 export enum CollaboratorRole {
-    EDITOR = 'editor',
-    VIEWER = 'viewer',
-    OWNER = 'owner'
+    EDITOR = 'EDITOR',
+    VIEWER = 'VIEWER',
+    OWNER = 'OWNER'
 }
 
 

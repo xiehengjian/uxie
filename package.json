@@ -9,7 +9,8 @@
     "lint": "next lint",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "tauri": "tauri"
   },
   "dependencies": {
     "@blocknote/core": "^0.12.4",
@@ -79,6 +80,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "@tauri-apps/cli": "^1.5.13",
     "@types/eslint": "^8.44.2",
     "@types/file-saver": "^2.0.6",
     "@types/node": "^18.16.0",

@@ -125,7 +125,7 @@ const InviteCollab = () => {
         documentId,
         data: {
           email,
-          role,
+          role: role as CollaboratorRole,
         },
       });
       // todo do optimisitc update here

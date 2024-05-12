@@ -32,14 +32,17 @@ const DocViewerPage = () => {
   }
 
   if (isError) {
+    console.log("错误",error)
     if (error?.data?.code === "UNAUTHORIZED") {
-      push("/f");
-
+      console.log("没登陆")
+      push("/login");
       toast.error(error.message, {
         duration: 3000,
       });
+    }else{
+      console.log("其他错误",error)
     }
-    return <>Something went wrong :( </>;
+    return <>{error}Something went wrong :( </>;
   }
 
   return (

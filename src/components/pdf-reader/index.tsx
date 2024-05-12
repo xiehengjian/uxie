@@ -230,7 +230,7 @@ const DocViewer = ({
     <div className="flex h-full flex-1 flex-col">
       <div className="flex items-center">
         <Link
-          href="/f"
+          href="/"
           className={cn(
             buttonVariants({ variant: "ghost", size: "sm" }),
             "w-fit justify-start",
