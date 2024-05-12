@@ -3,6 +3,11 @@ export enum HighlightContentType {
   IMAGE = "IMAGE",
 }
 
+export enum HighlightTypeEnum {
+  TEXT = "TEXT",
+  IMAGE = "IMAGE",
+}
+
 export interface HighlightContentTypes {
   content:
     | {

@@ -4,8 +4,7 @@ import { api } from "@/lib/api";
 import { useChatStore } from "@/lib/store";
 import { copyTextToClipboard } from "@/lib/utils";
 import { AppRouter } from "@/server/api/root";
-import { HighlightPositionType } from "@/types/highlight";
-import { HighlightTypeEnum } from "@prisma/client";
+import { HighlightPositionType,HighlightTypeEnum } from "@/types/highlight";
 import { inferRouterOutputs } from "@trpc/server";
 import {
   BookOpenCheck,

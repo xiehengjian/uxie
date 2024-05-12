@@ -1,6 +1,6 @@
 import { vectoriseDocument } from "@/lib/vectorise";
 import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
-import { CollaboratorRole } from "@prisma/client";
+import { CollaboratorRole } from "@/types/collaborator";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 

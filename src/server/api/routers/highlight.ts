@@ -1,7 +1,8 @@
 import { z } from "zod";
 
 import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
-import { CollaboratorRole, HighlightTypeEnum } from "@prisma/client";
+import { CollaboratorRole } from "@/types/collaborator";
+import {  HighlightTypeEnum } from "@/types/highlight";
 import { TRPCError } from "@trpc/server";
 
 export const highlightRouter = createTRPCRouter({

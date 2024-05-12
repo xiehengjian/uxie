@@ -19,7 +19,7 @@ import {
 import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { createId } from "@paralleldrive/cuid2";
-import { CollaboratorRole } from "@prisma/client";
+import {CollaboratorRole} from "@/types/collaborator";
 import { TrashIcon, UserPlus, XIcon } from "lucide-react";
 import { useRouter } from "next/router";
 import { useState } from "react";

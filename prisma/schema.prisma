@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -13,12 +13,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String? 
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String? 
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -50,7 +50,7 @@ model Document {
   collaborators Collaborator[]
   ownerId       String
   // notes seems to be stored on yjs, so no need to store it here
-  note          String?        @db.Text
+  note          String?       
   messages      Message[]
   isVectorised  Boolean        @default(false)
   createdAt     DateTime       @default(now())
@@ -66,15 +66,11 @@ model Document {
   flashcards Flashcard[]
 }
 
-enum CollaboratorRole {
-  EDITOR
-  VIEWER
-  OWNER
-}
+
 
 model Collaborator {
   id         String           @id @default(cuid())
-  role       CollaboratorRole
+  role       String
   document   Document         @relation(fields: [documentId], references: [id])
   documentId String
 
@@ -96,16 +92,13 @@ model Message {
   isUserMessage Boolean
 }
 
-enum HighlightTypeEnum {
-  TEXT
-  IMAGE
-}
+
 
 model Highlight {
   id         String            @id @default(cuid())
   // imageUrl   String?  @db.Text
   // text       String?  @db.Text
-  type       HighlightTypeEnum
+  type       String
   document   Document          @relation(fields: [documentId], references: [id], onDelete: Cascade)
   documentId String
   createdAt  DateTime          @default(now())
@@ -137,7 +130,7 @@ model Cordinate {
 
 model Feedback {
   id            String   @id @default(cuid())
-  message       String   @db.Text
+  message       String   
   // from the form
   contact_email String?
   type          String
