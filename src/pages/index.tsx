@@ -18,13 +18,16 @@ const UserLibraryPage = () => {
     isLoading,
     refetch: refetchUserDocs,
   } = api.user.getUsersDocs.useQuery();
+
+  api.document.getAllDocuments.useQuery();
+
   const [searchQuery, setSearchQuery] = useState("");
   const { query, push } = useRouter();
   if (isError){
     // console.log("错误",error)
     // if (error?.data?.code === "UNAUTHORIZED") {
       // console.log("没登陆")
-      push("/login");
+      // push("/login");
       // toast.error(error.message, {
         // duration: 3000,
       // });
@@ -54,7 +57,7 @@ const UserLibraryPage = () => {
 
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col px-4 py-2 lg:px-16">
-      <Link
+      {/* <Link
         href="/"
         className={cn(
           buttonVariants({ variant: "ghost" }),
@@ -63,7 +66,7 @@ const UserLibraryPage = () => {
       >
         <ChevronLeftIcon className="mr-2 h-4 w-4" />
         Back
-      </Link>
+      </Link> */}
       <div className="flex items-start justify-between md:px-4">
         <div>
           <p className="mb-1 text-2xl font-semibold tracking-tighter">
@@ -102,9 +105,6 @@ const UserLibraryPage = () => {
               key={doc.id}
               id={doc.id}
               title={doc.title}
-              isCollab={userDocs.collaboratorateddocuments.some(
-                (collab) => collab.document.id === doc.id,
-              )}
             />
           ))}
         </div>
@@ -116,11 +116,9 @@ const UserLibraryPage = () => {
 const DocCard = ({
   title,
   id,
-  isCollab,
 }: {
   title: string;
   id: string;
-  isCollab: boolean;
 }) => {
   return (
     <Link
@@ -135,11 +133,6 @@ const DocCard = ({
         {title?.slice(0, 30) + (title.length > 30 ? "..." : "") ?? "Untitled"}{" "}
       </p>
 
-      {isCollab && (
-        <Badge className="mr-auto" variant="outline">
-          Collab
-        </Badge>
-      )}
       {/* maybe display first page of the pdf here */}
       {/* add menubar to delete, rename doc, download pdf */}
     </Link>

@@ -40,3 +40,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+
+/src-tauri/target
+/src-tauri/icons
+/prisma/migrations/*

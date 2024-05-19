@@ -5,6 +5,28 @@ import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
 export const documentRouter = createTRPCRouter({
+  getAllDocuments: protectedProcedure
+   .query(async ({ ctx }) => {
+     const res = await ctx.prisma.document.findMany({
+       include: {
+          highlights: {
+            include: {
+              boundingRectangle: true,
+              rectangles: true,
+            },
+          },
+          owner: true,
+          collaborators: {
+            include: {
+              user: true,
+            },
+          },
+          messages: true,
+        },
+     });
+
+     return res || [];
+   }),
   getDocData: protectedProcedure
     .input(
       z.object({
