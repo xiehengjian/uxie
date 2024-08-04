@@ -191,40 +191,38 @@ const IndividualFlashcardQuestion = ({
   return (
     <div className="flex h-full flex-grow flex-col justify-between">
       <div>
-        <div className="mb-4">
-          <div className="rounded-t-lg bg-gray-100 p-4">
+        <div className="mb-4 px-2">
+          <div className="rounded-t-lg bg-gray-100 p-3">
             <h1 className="text-lg font-semibold">{question}</h1>
           </div>
-          <div className="rounded-b-lg border border-t-0 p-4">
-            <Textarea
-              value={userResponse}
-              onChange={(e) => setUserResponse(e.target.value)}
-              className="h-24 w-full p-2"
-              placeholder="Enter your answer..."
-            />
+          <Textarea
+            value={userResponse}
+            onChange={(e) => setUserResponse(e.target.value)}
+            className="h-24 w-full p-2 border-t-0 rounded-b-lg rounded-t-none focus-visible:ring-0 focus-visible:ring-offset-0"
+            placeholder="Enter your answer..."
+          />
 
-            <div className="mt-2 flex items-center justify-between ">
-              <Button
-                size="sm"
-                disabled={!userResponse}
-                onClick={() => {
-                  toggleAttempt();
-                  complete(userResponse);
-                }}
-                className="bg-blue-400 text-white hover:bg-blue-500"
-              >
-                Answer
-              </Button>
-              <Button
-                onClick={() => {
-                  toggleAttempt();
-                  setCompletion("");
-                }}
-                variant="ghost"
-              >
-                Don&apos;t know
-              </Button>
-            </div>
+          <div className="mt-2 flex items-center justify-between ">
+            <Button
+              size="sm"
+              disabled={!userResponse}
+              onClick={() => {
+                toggleAttempt();
+                complete(userResponse);
+              }}
+              className="bg-blue-400 text-white hover:bg-blue-500"
+            >
+              Answer
+            </Button>
+            <Button
+              onClick={() => {
+                toggleAttempt();
+                setCompletion("");
+              }}
+              variant="ghost"
+            >
+              Don&apos;t know
+            </Button>
           </div>
         </div>
       </div>

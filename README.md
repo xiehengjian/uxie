@@ -20,7 +20,7 @@ I'd love for you to give Uxie a try and share your valuable [feedback](https://u
 - **Zod** For validation
 - **Typescript** For type safety
 - **Tailwind CSS** For CSS
-- **React Query** for data fetching
+- **React Query** for data fetching, optimistic updates
 - **React Hook Form** for form handling
 - **Shadcn UI + Radix UI** For UI components
 - **Supabase** As the database
@@ -70,16 +70,15 @@ I'd love for you to give Uxie a try and share your valuable [feedback](https://u
 
   solution seems to be => create separate helper functions (take where, select, etc as params: use relevant prisma types to match each.)
 
-- [ ] fix the size of the highlight popover on small screens
 - [ ] remove the empty block => https://github.com/TypeCellOS/BlockNote/issues/631
 
 ## New ideas
 
 - [ ] use background runner or something and do long-polling
 - [ ] see if the liveblocks stuff can be replaced w. sockets [refer](https://www.blocknotejs.org/docs/real-time-collaboration#yjs-providers)
-- [ ] maybe swap uploadthing with `cloudinary` => also provides the getFirstPage of pdf thing, and use ocr (document the prices.)
+  - [ ] for now -> If no collab then fetch from DB, else fetch from liveblocks. Also, Always store notes to DB
 - [ ] Run the seogets script
-- [ ] add turbopack
+- [ ] figure out saving the first page, and doing ocr (maybe locally)
 
 ### Pinecone Setting up guide
 
