@@ -10,7 +10,7 @@ import { ChevronLeftIcon, SearchIcon, Sparkle } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Navigation } from "@/components/navigation/navigation";
-import FLayout from './layout'
+import FLayout from '@/components/layout/layout'
 import type { ReactElement } from 'react'
 
 const UserLibraryPage = () => {

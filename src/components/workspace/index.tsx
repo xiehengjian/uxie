@@ -9,6 +9,8 @@ import Sidebar from "@/components/workspace/sidebar";
 import { api } from "@/lib/api";
 import { useRouter } from "next/router";
 import { toast } from "sonner";
+import FLayout from '../../components/layout/layout'
+import type { ReactElement } from 'react'
 
 const DocViewerPage = () => {
   const { query, push } = useRouter();
@@ -68,3 +70,12 @@ const DocViewerPage = () => {
   );
 };
 export default DocViewerPage;
+
+
+DocViewerPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <FLayout>
+      {page}
+    </FLayout>
+  )
+}
