@@ -9,8 +9,9 @@ import Sidebar from "@/components/workspace/sidebar";
 import { api } from "@/lib/api";
 import { useRouter } from "next/router";
 import { toast } from "sonner";
-import FLayout from '../../components/layout/layout'
+import FLayout from '@/components/layout/layout'
 import type { ReactElement } from 'react'
+import { Navigation } from "@/components/navigation/navigation";
 
 const DocViewerPage = () => {
   const { query, push } = useRouter();
@@ -46,6 +47,7 @@ const DocViewerPage = () => {
 
   return (
     <>
+      <Navigation />
       <ResizablePanelGroup autoSaveId="window-layout" direction="horizontal">
         <ResizablePanel defaultSize={50} minSize={30}>
           <div className="h-screen min-w-[25vw] border-stone-200 bg-white sm:rounded-lg sm:border-r sm:shadow-lg">
