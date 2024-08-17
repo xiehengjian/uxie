@@ -84,10 +84,11 @@ export const Navigation = () => {
                     onClick={collapse}
                     role="button"
                     className={cn(
-                        "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600  transition",
+                        "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600  transition px-3 py-2 w-full",
                         isMobile && "opacity-100",
                     )}
                 >
+
                     <SidebarIcon className="h-6 w-6" />
                 </div>
                 <div>
