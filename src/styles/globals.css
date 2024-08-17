@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html,
+body,
+#__next {
+  @apply h-full;
+  margin: 0;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -70,6 +79,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -85,6 +95,7 @@
   background: transparent !important;
   z-index: 10;
 }
+
 .tippy-arrow {
   display: none !important;
 }
@@ -102,7 +113,7 @@
 
 .hideScrollbar {
   -ms-overflow-style: none !important;
-  scrollbar-width: none !important ;
+  scrollbar-width: none !important;
 }
 
 .bouncing-loader {
@@ -111,7 +122,7 @@
   margin: 1px auto;
 }
 
-.bouncing-loader > div {
+.bouncing-loader>div {
   width: 6px;
   height: 6px;
   margin: 3px;
@@ -128,17 +139,19 @@
   }
 }
 
-.bouncing-loader > div:nth-child(2) {
+.bouncing-loader>div:nth-child(2) {
   animation-delay: 0.2s;
 }
 
-.bouncing-loader > div:nth-child(3) {
+.bouncing-loader>div:nth-child(3) {
   animation-delay: 0.4s;
 }
 
 .hero-underline {
   text-decoration-thickness: 1.2rem;
   text-underline-offset: -0.2em;
-  text-decoration-skip-ink: none; /* works in Firefox & Chrome, not in Safari */
-  text-decoration-skip: none; /* works in Safari, not in Firefox & Chrome */
+  text-decoration-skip-ink: none;
+  /* works in Firefox & Chrome, not in Safari */
+  text-decoration-skip: none;
+  /* works in Safari, not in Firefox & Chrome */
 }
