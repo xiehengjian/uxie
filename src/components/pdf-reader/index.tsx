@@ -165,7 +165,7 @@ const DocViewer = ({
   const utils = api.useContext();
 
   useEffect(() => {
-    const scrollToHighlightFromHash = () => {};
+    const scrollToHighlightFromHash = () => { };
 
     window.addEventListener("hashchange", scrollToHighlightFromHash, false);
 
@@ -230,7 +230,7 @@ const DocViewer = ({
   return (
     <div className="flex h-full flex-1 flex-col">
       <div className="flex items-center">
-        <Link
+        {/* <Link
           href="/f"
           className={cn(
             buttonVariants({ variant: "ghost", size: "sm" }),
@@ -238,7 +238,7 @@ const DocViewer = ({
           )}
         >
           <ChevronLeftIcon className="mr-2 h-4 w-4" />
-        </Link>
+        </Link> */}
 
         <p className="line-clamp-1 font-semibold">{doc?.title ?? docId}</p>
       </div>
