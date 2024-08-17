@@ -36,7 +36,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
       ) : (
         <main>
           <Navbar />
-          <div className="mx-auto flex flex-col">
+          <div className="h-full mx-auto flex flex-col">
             <Component {...pageProps} />
           </div>
         </main>
