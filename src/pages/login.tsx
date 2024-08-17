@@ -32,7 +32,7 @@ const Login = () => {
           </h1>
         </div>
 
-        <button
+        {/* <button
           type="button"
           className={cn(buttonVariants({ variant: "outline" }))}
           onClick={() => {
@@ -43,7 +43,7 @@ const Login = () => {
         >
           {isLoading ? <Spinner /> : <GoogleIcon className="mr-2 h-4 w-4" />}{" "}
           Google
-        </button>
+        </button> */}
         <button
           type="button"
           className={cn(buttonVariants({ variant: "outline" }))}
@@ -54,7 +54,7 @@ const Login = () => {
           disabled={isLoading}
         >
           {isLoading ? <Spinner /> : <GithubIcon className="mr-2 h-4 w-4" />}{" "}
-          Google
+          Github
         </button>
       </div>
     </div>

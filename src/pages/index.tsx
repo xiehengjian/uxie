@@ -1,3 +1,4 @@
+import { Navigation } from "@/components/navigation/navigation";
 import Features from "@/components/other/features";
 import SlideUpWhenVisible from "@/components/other/slide-up-when-visible";
 import YoutubeEmbed from "@/components/other/youtube-embed";
