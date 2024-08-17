@@ -17,7 +17,7 @@ dependencies:
     specifier: ^0.12.4
     version: 0.12.4(@tiptap/pm@2.1.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
   '@blocksuite/icons':
-    specifier: ^2.1.63
+    specifier: ^2.1.62
     version: 2.1.63(@types/react@18.2.25)(react@18.2.0)
   '@hookform/resolvers':
     specifier: ^3.3.1

@@ -2,7 +2,7 @@ import { ElementRef, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { SidebarIcon } from '@blocksuite/icons/rc';
+import { SidebarIcon } from '@blocksuite/icons/icons/auto/24/rc';
 
 export const Navigation = () => {
     const pathname = usePathname()
