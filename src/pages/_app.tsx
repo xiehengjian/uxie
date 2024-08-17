@@ -9,15 +9,26 @@ import { DefaultSeo } from "next-seo";
 import { type AppType } from "next/app";
 import { useRouter } from "next/router";
 import { SEO } from "../../next-seo.config";
-import { Navigation } from "../components/navigation/navigation";
+import type { NextPage } from 'next'
+import type { ReactElement, ReactNode } from 'react'
+import type { AppProps } from 'next/app'
+
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
-}) => {
+}: AppPropsWithLayout) => {
   const router = useRouter();
   const isReader = router.pathname.startsWith("/f/");
-  return (
+  const getLayout = Component.getLayout ?? ((page) => page)
+  return getLayout(
     <SessionProvider session={session}>
       <DefaultSeo {...SEO} />
       {isReader ? (
@@ -25,7 +36,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
       ) : (
         <main>
           <Navbar />
-          {/* <Navigation /> */}
           <div className="mx-auto flex flex-col">
             <Component {...pageProps} />
           </div>

@@ -10,6 +10,8 @@ import { ChevronLeftIcon, SearchIcon, Sparkle } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Navigation } from "@/components/navigation/navigation";
+import FLayout from './layout'
+import type { ReactElement } from 'react'
 
 const UserLibraryPage = () => {
   const {
@@ -150,3 +152,11 @@ const DocCard = ({
 
 
 export default UserLibraryPage;
+
+UserLibraryPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <FLayout>
+      {page}
+    </FLayout>
+  )
+}
