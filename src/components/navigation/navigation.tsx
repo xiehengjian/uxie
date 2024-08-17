@@ -3,6 +3,10 @@ import { useMediaQuery } from "usehooks-ts"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { SidebarIcon } from '@blocksuite/icons/rc';
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
+import { ChevronLeftIcon } from "lucide-react";
+
 
 export const Navigation = () => {
     const pathname = usePathname()
@@ -84,18 +88,26 @@ export const Navigation = () => {
                     onClick={collapse}
                     role="button"
                     className={cn(
-                        "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600  transition px-3 py-2 w-full",
+                        "h-6 w-6   transition px-3 py-2 w-full",
                         isMobile && "opacity-100",
                     )}
                 >
 
-                    <SidebarIcon className="h-6 w-6" />
+                    <SidebarIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
                 </div>
-                <div>
-                    <p>Action items</p>
-                </div>
-                <div className="mt-4">
-                    <p>Documents</p>
+
+                <div className="mt-4 ">
+
+                    <Link
+                        href="/f"
+                        className={cn(
+                            buttonVariants({ variant: "ghost", size: "sm" }),
+                            "w-fit justify-start ",
+                        )}
+                    >
+                        <ChevronLeftIcon className="mr-2 h-4 w-4 " />
+                        <p>全部文档</p>
+                    </Link>
                 </div>
                 <div
                     onMouseDown={handleMouseDown}
