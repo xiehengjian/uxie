@@ -16,6 +16,9 @@ dependencies:
   '@blocknote/react':
     specifier: ^0.12.4
     version: 0.12.4(@tiptap/pm@2.1.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
+  '@blocksuite/icons':
+    specifier: ^2.1.63
+    version: 2.1.63(@types/react@18.2.25)(react@18.2.0)
   '@hookform/resolvers':
     specifier: ^3.3.1
     version: 3.3.1(react-hook-form@7.47.0)
@@ -398,6 +401,23 @@ packages:
       - '@tiptap/pm'
       - '@types/react'
       - supports-color
+    dev: false
+
+  /@blocksuite/icons@2.1.63(@types/react@18.2.25)(react@18.2.0):
+    resolution: {integrity: sha512-E/Zp7787XVxsZ61afzqA1UcocAgMbENlDX+lqOSjfAuFmA7o511FCK+G8afwJpciajrq1VwRMbtgeXGmAQ3Ofg==}
+    engines: {node: '>=18.17.1'}
+    peerDependencies:
+      '@types/react': ^18.0.25
+      lit: ^2.6.1
+      react: ^18.2.0
+    peerDependenciesMeta:
+      lit:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      '@types/react': 18.2.25
+      react: 18.2.0
     dev: false
 
   /@edge-runtime/primitives@4.0.3:
