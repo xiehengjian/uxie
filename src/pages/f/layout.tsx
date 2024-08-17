@@ -2,7 +2,7 @@
 
 import { Navigation } from "@/components/navigation/navigation";
 
-const MainLayout = ({ children }: { children: React.ReactNode }) => {
+const FLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div className="h-full flex dark:bg-[#1F1F1F]">
             <Navigation />
@@ -14,5 +14,5 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-export default MainLayout;
+export default FLayout;
 
