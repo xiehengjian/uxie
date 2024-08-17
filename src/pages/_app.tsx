@@ -9,6 +9,7 @@ import { DefaultSeo } from "next-seo";
 import { type AppType } from "next/app";
 import { useRouter } from "next/router";
 import { SEO } from "../../next-seo.config";
+import { Navigation } from "../components/navigation/navigation";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -24,6 +25,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
       ) : (
         <main>
           <Navbar />
+          <Navigation />
           <div className="mx-auto flex flex-col">
             <Component {...pageProps} />
           </div>
