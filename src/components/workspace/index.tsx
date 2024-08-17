@@ -49,9 +49,9 @@ const DocViewerPage = () => {
     <>
 
       <ResizablePanelGroup autoSaveId="window-layout" direction="horizontal">
-        <ResizablePanel>
+       
           <Navigation />
-        </ResizablePanel>
+       
         <ResizablePanel defaultSize={50} minSize={30}>
           <div className="h-screen min-w-[25vw] border-stone-200 bg-white sm:rounded-lg sm:border-r sm:shadow-lg">
             <DocViewer doc={doc} canEdit={doc.userPermissions.canEdit} />
