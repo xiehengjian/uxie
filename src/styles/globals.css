@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+/* 这样设置，navigation才能铺满屏幕 */
 html,
 body,
 #__next {
