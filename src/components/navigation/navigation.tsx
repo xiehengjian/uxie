@@ -121,8 +121,12 @@ export const Navigation = () => {
                             "w-fit justify-start ",
                         )}
                     >
-                        <FoldersIcon className="mr-2 h-4 w-4 " />
-                        <p>全部文档</p>
+                         <Item
+                        // onClick={handleNewFolder}
+                        label=">全部文档"
+                        icon={FoldersIcon}
+                    />
+                       
                     </Link>
                     <Item
                         onClick={handleNewFolder}
