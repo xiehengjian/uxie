@@ -61,11 +61,11 @@ export const Folder = ({
                 <div key={folder.id}>
                     <Item
                         id={folder.id}
-                        // onClick={() => onRedirect(document._id)}
+                        onClick={() => onRedirect(folder.id)}
                         label={folder.name}
                         icon={FolderIcon}
                         // documentIcon={document.icon}
-                        // active={params.documentId === document._id}
+                        active={params?.folderId === folder.id}
                         level={level}
                         onExpand={() => onExpand(folder.id)}
                         expanded={expanded[folder.id]}

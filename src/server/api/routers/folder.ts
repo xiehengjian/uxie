@@ -8,17 +8,17 @@ import { z } from "zod";
 import { TRPCError } from "@trpc/server";
 
 export const folderRouter = createTRPCRouter({
-    getfolderDocs: protectedProcedure.query(async ({ ctx }) => {
+    getfolderDocs: protectedProcedure.input(
+        z.object({
+            id: z.string(),
+        }),
+    ).query(async ({ ctx, input }) => {
         return await ctx.prisma.folder.findUnique({
             where: {
-                id: ctx?.session?.user?.id,
+                id: input.id,
             },
             include: {
-                documents: {
-                    include: {
-                        collaborators: true,
-                    },
-                },
+                documents: true
             },
         });
     }),
