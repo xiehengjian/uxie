@@ -115,7 +115,7 @@ const DocCard = ({
   return (
     <Link
       key={id}
-      href={`/f/${id}`}
+      href={`/f/0/${id}`}
       className={cn(
         buttonVariants({ variant: "ghost" }),
         "flex flex-col gap-2 border py-8 hover:border-blue-300",
