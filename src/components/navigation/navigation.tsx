@@ -118,7 +118,7 @@ export const Navigation = () => {
 
                     <SidebarIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
                 </div>
-                <div>
+                <div className="mt-4">
 
                     <Item
                         onClick={Redirect2F}
@@ -135,7 +135,7 @@ export const Navigation = () => {
 
                 </div>
 
-                <div className="mt-4 ">
+                <div className="mt-4">
                     <Folder />
                 </div>
                 <div
