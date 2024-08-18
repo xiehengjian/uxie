@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Navigation } from "@/components/navigation/navigation";
 import FLayout from '@/components/layout/layout'
 import type { ReactElement } from 'react'
+import Draggable from 'react-draggable'
 
 const UserLibraryPage = () => {
   const {
@@ -84,15 +85,17 @@ const UserLibraryPage = () => {
 
           <div className="grid grid-cols-1 gap-2 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 ">
             {filteredUserDocs?.map((doc) => (
-              <DocCard
-                isVectorised={doc.isVectorised}
-                key={doc.id}
-                id={doc.id}
-                title={doc.title}
-                isCollab={userDocs.collaboratorateddocuments.some(
-                  (collab) => collab.document.id === doc.id,
-                )}
-              />
+              <Draggable key={doc.id}>
+                <DocCard
+                  isVectorised={doc.isVectorised}
+                  key={doc.id}
+                  id={doc.id}
+                  title={doc.title}
+                  isCollab={userDocs.collaboratorateddocuments.some(
+                    (collab) => collab.document.id === doc.id,
+                  )}
+                />
+              </Draggable>
             ))}
           </div>
         </div>
