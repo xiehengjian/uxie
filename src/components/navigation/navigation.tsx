@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import { SidebarIcon } from '@blocksuite/icons/rc';
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { ChevronLeftIcon, FoldersIcon, PlusCircle } from "lucide-react";
+import { ChevronLeftIcon, FilesIcon, FoldersIcon, PlusCircle } from "lucide-react";
 import { Item } from "../item/item";
 import { api } from "@/lib/api";
 import { toast } from "sonner";
@@ -123,7 +123,7 @@ export const Navigation = () => {
                     <Item
                         onClick={Redirect2F}
                         label="全部文档"
-                        icon={FoldersIcon}
+                        icon={FilesIcon}
                     />
 
 
