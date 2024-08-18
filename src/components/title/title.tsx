@@ -35,21 +35,21 @@ export const Title = ({ id, value }: TitleProps) => {
         setIsEditing(false);
     }
 
-    // const onChange = (
-    //     event: React.ChangeEvent<HTMLInputElement>
-    // ) => {
-    //     setTitile(event.target.value);
-    //     if (!id) return;
-    //     const promise = update({
-    //         id: id,
-    //         name: event.target.value || "Untitled"
-    //     })
-    //     toast.promise(promise, {
-    //         loading: "Rename...",
-    //         success: "Renamed",
-    //         error: "Failed to rename",
-    //     });
-    // }
+    const onChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        setTitile(event.target.value);
+        // if (!id) return;
+        // const promise = update({
+        //     id: id,
+        //     name: event.target.value || "Untitled"
+        // })
+        // toast.promise(promise, {
+        //     loading: "Rename...",
+        //     success: "Renamed",
+        //     error: "Failed to rename",
+        // });
+    }
 
     const onKeyDown = (
         event: React.KeyboardEvent<HTMLInputElement>
@@ -67,7 +67,7 @@ export const Title = ({ id, value }: TitleProps) => {
                     ref={inputRef}
                     onClick={enableInput}
                     onBlur={disableInput}
-                    // onChange={onChange}
+                    onChange={onChange}
                     onKeyDown={onKeyDown}
                     value={title}
                     className="h-7 px-2 focus-visible:ring-transparent" />
