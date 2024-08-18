@@ -72,8 +72,8 @@ model Document {
 
   // pdf first page url => cloudinary provides this.
   flashcards Flashcard[]
-  folderId String
- folder Folder @relation(fields: [folderId], references: [id])
+  folderId String?
+  folder Folder? @relation(fields: [folderId], references: [id])
 }
 
 model Folder {
