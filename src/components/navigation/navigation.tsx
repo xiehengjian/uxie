@@ -10,6 +10,7 @@ import { Item } from "../item/item";
 import { api } from "@/lib/api";
 import { toast } from "sonner";
 import { Folder } from "../folder/folder";
+import { useRouter } from "next/router";
 
 
 export const Navigation = () => {
@@ -92,6 +93,10 @@ export const Navigation = () => {
             error: "Failed to create a new folder",
         });
     }
+    const router = useRouter()
+    const Redirect2F = () => {
+        router.push(`/f`)
+    }
 
     return (
         <>
@@ -114,20 +119,14 @@ export const Navigation = () => {
                     <SidebarIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
                 </div>
                 <div>
-                    <Link
-                        href="/f"
-                        className={cn(
-                            buttonVariants({ variant: "ghost", size: "sm" }),
-                            "w-fit justify-start ",
-                        )}
-                    >
-                        <Item
-                            // onClick={handleNewFolder}
-                            label="全部文档"
-                            icon={FoldersIcon}
-                        />
 
-                    </Link>
+                    <Item
+                        onClick={Redirect2F}
+                        label="全部文档"
+                        icon={FoldersIcon}
+                    />
+
+
                     <Item
                         onClick={handleNewFolder}
                         label="New Folder"
