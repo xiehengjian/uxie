@@ -119,8 +119,8 @@ export const Item = ({
             )}
 
             {id ? (
-                <span className="truncate">{label}</span>
-            ) : (<Title id={id} value={label} />)}
+                <Title id={id} value={label} />
+            ) : (<span className="truncate">{label}</span>)}
 
 
 
