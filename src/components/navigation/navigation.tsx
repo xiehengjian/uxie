@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import { SidebarIcon } from '@blocksuite/icons/rc';
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { ChevronLeftIcon, PlusCircle } from "lucide-react";
+import { ChevronLeftIcon, FoldersIcon, PlusCircle } from "lucide-react";
 import { Item } from "../item/item";
 import { api } from "@/lib/api";
 import { toast } from "sonner";
@@ -121,7 +121,7 @@ export const Navigation = () => {
                             "w-fit justify-start ",
                         )}
                     >
-                        <ChevronLeftIcon className="mr-2 h-4 w-4 " />
+                        <FoldersIcon className="mr-2 h-4 w-4 " />
                         <p>全部文档</p>
                     </Link>
                     <Item
