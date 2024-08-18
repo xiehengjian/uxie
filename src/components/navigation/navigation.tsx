@@ -129,7 +129,7 @@ export const Navigation = () => {
 
                     <Item
                         onClick={handleNewFolder}
-                        label="New Folder"
+                        label="新建文件夹"
                         icon={PlusCircle}
                     />
 
