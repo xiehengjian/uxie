@@ -32,6 +32,7 @@ model User {
   emailVerified             DateTime?
   image                     String?
   accounts                  Account[]
+  folders                   Folder[]  
   documents                 Document[]
   messages                  Message[]
   collaboratorateddocuments Collaborator[]
@@ -71,6 +72,19 @@ model Document {
 
   // pdf first page url => cloudinary provides this.
   flashcards Flashcard[]
+  folderId String
+ folder Folder @relation(fields: [folderId], references: [id])
+}
+
+model Folder {
+  id                        String             @id @default(cuid())
+  name                      String
+  parentId                  String?
+  parentFolder              Folder?             @relation(name: "ParentChild",fields: [parentId], references: [id])
+  subFolders                Folder[]      @relation(name: "ParentChild")
+  documents                 Document[]
+  ownerId       String
+  owner         User           @relation(fields: [ownerId], references: [id])
 }
 
 enum CollaboratorRole {

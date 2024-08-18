@@ -5,7 +5,11 @@ import { cn } from "@/lib/utils"
 import { SidebarIcon } from '@blocksuite/icons/rc';
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { ChevronLeftIcon } from "lucide-react";
+import { ChevronLeftIcon, PlusCircle } from "lucide-react";
+import { Item } from "../item/item";
+import { api } from "@/lib/api";
+import { toast } from "sonner";
+import { Folder } from "../folder/folder";
 
 
 export const Navigation = () => {
@@ -75,6 +79,20 @@ export const Navigation = () => {
         document.removeEventListener("mouseup", handleMouseUp);
     };
 
+    const { mutateAsync: mutateAddFolder } =
+        api.folder.addFolder.useMutation();
+
+    const handleNewFolder = () => {
+        const promise = mutateAddFolder({
+            name: "Untitled"
+        })
+        toast.promise(promise, {
+            loading: "Creating a new folder...",
+            success: "New folder created",
+            error: "Failed to create a new folder",
+        });
+    }
+
     return (
         <>
             <aside
@@ -95,9 +113,7 @@ export const Navigation = () => {
 
                     <SidebarIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
                 </div>
-
-                <div className="mt-4 ">
-
+                <div>
                     <Link
                         href="/f"
                         className={cn(
@@ -108,6 +124,16 @@ export const Navigation = () => {
                         <ChevronLeftIcon className="mr-2 h-4 w-4 " />
                         <p>全部文档</p>
                     </Link>
+                    <Item
+                        onClick={handleNewFolder}
+                        label="New Folder"
+                        icon={PlusCircle}
+                    />
+
+                </div>
+
+                <div className="mt-4 ">
+                    <Folder />
                 </div>
                 <div
                     onMouseDown={handleMouseDown}
