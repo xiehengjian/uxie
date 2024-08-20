@@ -63,7 +63,8 @@ export const Title = ({ id, value: initialValue, update }: TitleProps) => {
             {isEditing ? (
                 <Input
                     ref={inputRef}
-                    onClick={enableInput}
+                    // onClick={enableInput}
+                    onDoubleClick={enableInput}
                     onBlur={disableInput}
                     onChange={onChange}
                     onKeyDown={onKeyDown}
@@ -71,7 +72,7 @@ export const Title = ({ id, value: initialValue, update }: TitleProps) => {
                     className="h-7 px-2 focus-visible:ring-transparent" />
             ) : (
                 <Button
-                    onClick={enableInput}
+                    onDoubleClick={enableInput}
                     variant="ghost"
                     size="sm"
                     className="font-nomar h-auto p-1"
