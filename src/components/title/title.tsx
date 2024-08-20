@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/lib/api";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { useMap } from "usehooks-ts";
 
@@ -13,17 +13,20 @@ interface TitleProps {
     value: string;
 }
 
-export const Title = ({ id, value }: TitleProps) => {
+export const Title = ({ id, value: initialValue }: TitleProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
     // const update = useMutation(api.documents.update);
     const { mutateAsync: update } = api.folder.updateFolder.useMutation();
 
-    const [title, setTitile] = useState(value || "Untitled")
+    const [value, setValue] = useState(initialValue);
+    const [title, setTitle] = useState(value);
+
+
 
     const [isEditing, setIsEditing] = useState(false)
 
     const enableInput = () => {
-        setTitile(value);
+        setTitle(value);
         setIsEditing(true);
         setTimeout(() => {
             inputRef.current?.focus();
@@ -38,23 +41,25 @@ export const Title = ({ id, value }: TitleProps) => {
     const onChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ) => {
-        setTitile(event.target.value);
-        // if (!id) return;
-        // const promise = update({
-        //     id: id,
-        //     name: event.target.value || "Untitled"
-        // })
-        // toast.promise(promise, {
-        //     loading: "Rename...",
-        //     success: "Renamed",
-        //     error: "Failed to rename",
-        // });
+        setTitle(event.target.value);
+        if (!id) return;
+        const promise = update({
+            id: id,
+            name: event.target.value || "Untitled"
+        })
+        toast.promise(promise, {
+            loading: "Rename...",
+            success: "Renamed",
+            error: "Failed to rename",
+        });
+        setValue(event.target.value);
     }
 
     const onKeyDown = (
         event: React.KeyboardEvent<HTMLInputElement>
     ) => {
         if (event.key === "Enter") {
+            console.log(value)
             disableInput();
         }
     }

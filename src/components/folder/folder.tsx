@@ -5,6 +5,7 @@ import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { Item } from "../item/item";
 import { FolderIcon } from "lucide-react";
+import { toast } from "sonner";
 
 interface FolderListProps {
     parentFolderId?: string;
@@ -43,6 +44,20 @@ export const Folder = ({
         router.push(`/f/${folderId}`)
     }
 
+    const { mutateAsync: moveToFolder } = api.document.moveToFolder.useMutation();
+
+    const moveDocumentToFolder = (documentId: string, folderId: string) => {
+        const promise = moveToFolder({
+            documentId,
+            folderId
+        })
+        toast.promise(promise, {
+            loading: "Moving...",
+            success: "Moved",
+            error: "Failed to move",
+        });
+    }
+
     return (
         <>
             <p
@@ -69,9 +84,7 @@ export const Folder = ({
                         level={level}
                         onExpand={() => onExpand(folder.id)}
                         expanded={expanded[folder.id]}
-                        onDrop={(documentId: string, folderId: string) => {
-                            console.log(documentId, folderId)
-                        }}
+                        onDrop={moveDocumentToFolder}
                     />
                     {expanded[folder.id] && (
                         <Folder parentFolderId={folder.id} level={level + 1} />
