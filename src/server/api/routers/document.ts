@@ -400,5 +400,28 @@ export const documentRouter = createTRPCRouter({
         message: err.message,
       });
     }
-  })
+  }),
+  updateDocumentName: protectedProcedure.input(
+    z.object({
+      id: z.string(),
+      name: z.string(),
+    })).mutation(async ({ ctx, input }) => {
+      try {
+        const updateDocumentName = await ctx.prisma.document.update({
+          where: {
+            id: input.id,
+          },
+          data: {
+            title: input.name,
+          }
+        });
+        return updateDocumentName;
+      } catch (err: any) {
+        console.log(err.message);
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: err.message,
+        });
+      }
+    })
 });

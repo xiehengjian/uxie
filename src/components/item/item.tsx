@@ -23,6 +23,7 @@ import {
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Title } from "../title/title";
+import { type } from "os";
 
 interface ItemProps {
     id?: string;
@@ -31,6 +32,7 @@ interface ItemProps {
     expanded?: boolean;
     isSearch?: boolean;
     level?: number;
+    itemType: "folder" | "document";
     onExpand?: () => void;
     label: string;// 元素展示的字符串
     onClick?: () => void;// 元素被点击时调用
@@ -50,6 +52,7 @@ export const Item = ({
     onExpand,
     expanded,
     onDrop,
+    itemType,
 }: ItemProps) => {
     // const { user } = useUser();
 
@@ -117,10 +120,10 @@ export const Item = ({
         backgroundColor: isOver && canDrop ? "bg-primary/5 text-primary" : "",
     };
 
-    const { mutateAsync: update } = api.folder.updateFolder.useMutation();
+    const { mutateAsync: updateFolderName } = api.folder.updateFolder.useMutation();
 
-    const updateFolderName = (id: string, name: string) => {
-        const promise = update({
+    const updateFolder = (id: string, name: string) => {
+        const promise = updateFolderName({
             id: id,
             name: name
         })
@@ -130,6 +133,20 @@ export const Item = ({
             error: "Failed to rename",
         });
     }
+
+    const { mutateAsync: updateDocName } = api.document.updateDocumentName.useMutation();
+    const updateDocumentName = (id: string, name: string) => {
+        const promise = updateDocName({
+            id: id,
+            name: name
+        })
+        toast.promise(promise, {
+            loading: "Rename...",
+            success: "Renamed",
+            error: "Failed to rename",
+        });
+    }
+
     return drop(
         // 一个大的div容器，内部包裹中一些元素
         <div
@@ -160,7 +177,10 @@ export const Item = ({
 
             {/* 文件夹则应用Title组件 */}
             {id ? (
-                <Title id={id} value={label} update={updateFolderName} />
+                (itemType === "folder") ? (
+                    <Title id={id} value={label} update={updateFolder} />) : (
+                    <Title id={id} value={label} update={updateDocumentName} />
+                )
             ) : (<span className="truncate">{label}</span>)}
 
 

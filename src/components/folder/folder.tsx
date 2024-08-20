@@ -92,6 +92,7 @@ export const Folder = ({
                         onExpand={() => onExpand(folder.id)}
                         expanded={expanded[folder.id]}
                         onDrop={moveDocumentToFolder}
+                        itemType="folder"
                     />
                     {expanded[folder.id] && (
                         <Folder parentFolderId={folder.id} level={level + 1} />
@@ -101,13 +102,14 @@ export const Folder = ({
             {documents?.documents.map((document) => (
                 <div key={document.id}>
                     <Item
-                        // id={folder.id}
+                        id={document.id}
                         onClick={() => onRedirectDocument(document.id)}
                         label={document.title}
                         icon={FileIcon}
                         // documentIcon={document.icon}
                         active={params?.docId === document.id}
                         level={level}
+                        itemType="document"
                     // onExpand={() => onExpand(folder.id)}
                     // expanded={expanded[folder.id]}
                     // onDrop={moveDocumentToFolder}
