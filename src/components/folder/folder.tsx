@@ -69,6 +69,9 @@ export const Folder = ({
                         level={level}
                         onExpand={() => onExpand(folder.id)}
                         expanded={expanded[folder.id]}
+                        onDrop={(documentId: string, folderId: string) => {
+                            console.log(documentId, folderId)
+                        }}
                     />
                     {expanded[folder.id] && (
                         <Folder parentFolderId={folder.id} level={level + 1} />

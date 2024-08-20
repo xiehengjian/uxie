@@ -12,6 +12,8 @@ import { SEO } from "../../next-seo.config";
 import type { NextPage } from 'next'
 import type { ReactElement, ReactNode } from 'react'
 import type { AppProps } from 'next/app'
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -28,22 +30,24 @@ const MyApp: AppType<{ session: Session | null }> = ({
   const router = useRouter();
   const isReader = router.pathname.startsWith("/f/");
   const getLayout = Component.getLayout ?? ((page) => page)
-  return getLayout(
-    <SessionProvider session={session}>
-      <DefaultSeo {...SEO} />
-      {isReader ? (
-        <Component {...pageProps} />
-      ) : (
-        <main>
-          <Navbar />
-          <div className="h-full mx-auto flex flex-col">
-            <Component {...pageProps} />
-          </div>
-        </main>
-      )}
-      <Toaster />
-    </SessionProvider>
-  );
+  return (<DndProvider backend={HTML5Backend}>
+    {getLayout(
+      <SessionProvider session={session}>
+        <DefaultSeo {...SEO} />
+        {isReader ? (
+          <Component {...pageProps} />
+        ) : (
+          <main>
+            <Navbar />
+            <div className="h-full mx-auto flex flex-col">
+              <Component {...pageProps} />
+            </div>
+          </main>
+        )}
+        <Toaster />
+      </SessionProvider>
+    )}
+  </DndProvider>);
 };
 
 export default api.withTRPC(MyApp);

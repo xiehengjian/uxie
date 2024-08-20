@@ -10,6 +10,7 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { api } from "@/lib/api";
+import { useDrop } from 'react-dnd';
 
 import {
     ChevronDown,
@@ -34,6 +35,7 @@ interface ItemProps {
     label: string;// 元素展示的字符串
     onClick?: () => void;// 元素被点击时调用
     icon: LucideIcon; // 元素的图标
+    onDrop?: (documentId: string, folderId: string) => void;
 }
 
 export const Item = ({
@@ -47,6 +49,7 @@ export const Item = ({
     level = 0,
     onExpand,
     expanded,
+    onDrop,
 }: ItemProps) => {
     // const { user } = useUser();
 
@@ -92,17 +95,41 @@ export const Item = ({
 
     const ChevronIcon = expanded ? ChevronDown : ChevronRight;
 
-    return (
+
+    const [{ isOver, canDrop }, drop] = useDrop(() => ({
+        accept: "file",
+        drop: (item: { id: string }, monitor) => {
+            if (!monitor.didDrop()) {
+                if (!id) return;
+                onDrop?.(item.id, id);
+            }
+        },
+        canDrop: (item) => {
+            if (!id) return false;
+            return true;
+        },
+        collect: (monitor) => ({
+            isOver: monitor.isOver({ shallow: true }),
+            canDrop: monitor.canDrop(),
+        }),
+    }));
+    const activeStyles = {
+        backgroundColor: isOver && canDrop ? "bg-primary/5 text-primary" : "",
+    };
+
+    return drop(
         // 一个大的div容器，内部包裹中一些元素
         <div
             onClick={onClick}// 元素被点击时的函数，由调用者传入
             role="button" // 
-            style={{ paddingLeft: level ? `${level * 12 + 12}px` : "12px" }}
+            style={{ ...activeStyles, paddingLeft: level ? `${level * 12 + 12}px` : "12px" }}
             className={cn(
                 "group min-h-[27px] text-sm py-1 pr-3 w-full hover:bg-primary/5 flex items-center text-muted-foreground font-medium",
                 active && "bg-primary/5 text-primary",
+                isOver && canDrop && "bg-primary/5 text-primary",
             )}
         >
+            {/* 折叠图标 */}
             {!!id && (
                 <div
                     role="button"
@@ -112,12 +139,13 @@ export const Item = ({
                     <ChevronIcon className="h-4 w-4 shrink-0 text-muted-foreground/50" />
                 </div>
             )}
-            {documentIcon ? (
+            {/* {documentIcon ? (
                 <div className="shrink-0 mr-2 text-[18px]">{documentIcon}</div>
             ) : (
                 <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" />
-            )}
+            )} */}
 
+            {/* 文件夹则应用Title组件 */}
             {id ? (
                 <Title id={id} value={label} />
             ) : (<span className="truncate">{label}</span>)}
