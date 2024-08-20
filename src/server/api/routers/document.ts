@@ -377,4 +377,28 @@ export const documentRouter = createTRPCRouter({
         });
       }
     }),
+  moveToFolder: protectedProcedure.input(
+    z.object({
+      documentId: z.string(),
+      folderId: z.string(),
+    }),
+  ).mutation(async ({ ctx, input }) => {
+    try {
+      const moveToFolder = await ctx.prisma.document.update({
+        where: {
+          id: input.documentId,
+        },
+        data: {
+          folderId: input.folderId,
+        }
+      });
+      return moveToFolder;
+    } catch (err: any) {
+      console.log(err.message);
+      throw new TRPCError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: err.message,
+      });
+    }
+  })
 });
