@@ -14,6 +14,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import { Title } from "../title/title";
 
 type RouterOutput = inferRouterOutputs<AppRouter>;
 type HighlightType =
@@ -227,6 +228,19 @@ const DocViewer = ({
     return;
   }
 
+  const { mutateAsync: updateDocName } = api.document.updateDocumentName.useMutation();
+  const updateDocumentName = (id: string, name: string) => {
+    const promise = updateDocName({
+      id: id,
+      name: name
+    })
+    toast.promise(promise, {
+      loading: "Rename...",
+      success: "Renamed",
+      error: "Failed to rename",
+    });
+  }
+
   return (
     <div className="flex h-full flex-1 flex-col">
       <div className="flex items-center">
@@ -240,7 +254,8 @@ const DocViewer = ({
           <ChevronLeftIcon className="mr-2 h-4 w-4" />
         </Link> */}
 
-        <p className="line-clamp-1 font-semibold">{doc?.title ?? docId}</p>
+        {/* <p className="line-clamp-1 font-semibold">{doc?.title ?? docId}</p> */}
+        <Title id={docId as string} value={doc?.title} update={updateDocumentName} />
       </div>
       <div className="relative h-full w-full">
         <PdfReader

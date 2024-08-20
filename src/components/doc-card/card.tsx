@@ -14,6 +14,8 @@ import FLayout from '@/components/layout/layout'
 import type { ReactElement } from 'react'
 import { useDrag, DragSourceMonitor } from 'react-dnd';
 import React from 'react';
+import { Title } from "../title/title";
+import { toast } from "sonner";
 
 type DocCardProps = {
     title: string;
@@ -37,6 +39,19 @@ const DocCard: React.FC<DocCardProps> = ({
         }),
     });
 
+    const { mutateAsync: updateDocName } = api.document.updateDocumentName.useMutation();
+    const updateDocumentName = (id: string, name: string) => {
+        const promise = updateDocName({
+            id: id,
+            name: name
+        })
+        toast.promise(promise, {
+            loading: "Rename...",
+            success: "Renamed",
+            error: "Failed to rename",
+        });
+    }
+
     return drag(
         <div style={{ opacity: isDragging ? 0.5 : 1 }}>
             <Link
@@ -48,7 +63,8 @@ const DocCard: React.FC<DocCardProps> = ({
                 )}
             >
                 <div className="w-full flex justify-between">
-                    <p className="mr-auto min-w-0 truncate">{title}</p>
+                    <p className="mr-auto min-w-0 truncate"> <Title id={id} value={title} update={updateDocumentName} /></p>
+
                     <CustomTooltip
                         content={
                             isVectorised
