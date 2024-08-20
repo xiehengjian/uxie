@@ -4,7 +4,7 @@ import { useState } from "react"
 import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { Item } from "../item/item";
-import { FolderIcon } from "lucide-react";
+import { FileIcon, FolderIcon } from "lucide-react";
 import { toast } from "sonner";
 
 interface FolderListProps {
@@ -36,12 +36,19 @@ export const Folder = ({
         refetch: refetchUserDocs,
     } = api.folder.getSubFolders.useQuery({ parentId: parentFolderId });
 
+    const {
+        data: documents
+    } = api.folder.getfolderDocs.useQuery({ id: parentFolderId || "" });
 
 
 
 
     const onRedirect = (folderId: string) => {
         router.push(`/f/${folderId}`)
+    }
+
+    const onRedirectDocument = (folderId: string) => {
+        router.push(`/f/0/${folderId}`)
     }
 
     const { mutateAsync: moveToFolder } = api.document.moveToFolder.useMutation();
@@ -89,6 +96,22 @@ export const Folder = ({
                     {expanded[folder.id] && (
                         <Folder parentFolderId={folder.id} level={level + 1} />
                     )}
+                </div>
+            ))}
+            {documents?.documents.map((document) => (
+                <div key={document.id}>
+                    <Item
+                        // id={folder.id}
+                        onClick={() => onRedirectDocument(document.id)}
+                        label={document.title}
+                        icon={FileIcon}
+                        // documentIcon={document.icon}
+                        active={params?.docId === document.id}
+                        level={level}
+                    // onExpand={() => onExpand(folder.id)}
+                    // expanded={expanded[folder.id]}
+                    // onDrop={moveDocumentToFolder}
+                    />
                 </div>
             ))}
         </>

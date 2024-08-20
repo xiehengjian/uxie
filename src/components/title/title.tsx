@@ -11,12 +11,13 @@ import { useMap } from "usehooks-ts";
 interface TitleProps {
     id?: string;
     value: string;
+    update: (id: string, name: string) => void;// 元素被点击时调用
 }
 
-export const Title = ({ id, value: initialValue }: TitleProps) => {
+export const Title = ({ id, value: initialValue, update }: TitleProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
     // const update = useMutation(api.documents.update);
-    const { mutateAsync: update } = api.folder.updateFolder.useMutation();
+    // const { mutateAsync: update } = api.folder.updateFolder.useMutation();
 
     const [value, setValue] = useState(initialValue);
     const [title, setTitle] = useState(value);
@@ -43,15 +44,7 @@ export const Title = ({ id, value: initialValue }: TitleProps) => {
     ) => {
         setTitle(event.target.value);
         if (!id) return;
-        const promise = update({
-            id: id,
-            name: event.target.value || "Untitled"
-        })
-        toast.promise(promise, {
-            loading: "Rename...",
-            success: "Renamed",
-            error: "Failed to rename",
-        });
+        update(id, event.target.value);
         setValue(event.target.value);
     }
 

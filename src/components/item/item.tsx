@@ -117,6 +117,19 @@ export const Item = ({
         backgroundColor: isOver && canDrop ? "bg-primary/5 text-primary" : "",
     };
 
+    const { mutateAsync: update } = api.folder.updateFolder.useMutation();
+
+    const updateFolderName = (id: string, name: string) => {
+        const promise = update({
+            id: id,
+            name: name
+        })
+        toast.promise(promise, {
+            loading: "Rename...",
+            success: "Renamed",
+            error: "Failed to rename",
+        });
+    }
     return drop(
         // 一个大的div容器，内部包裹中一些元素
         <div
@@ -147,7 +160,7 @@ export const Item = ({
 
             {/* 文件夹则应用Title组件 */}
             {id ? (
-                <Title id={id} value={label} />
+                <Title id={id} value={label} update={updateFolderName} />
             ) : (<span className="truncate">{label}</span>)}
 
 
