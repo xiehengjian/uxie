@@ -64,7 +64,7 @@ export const Title = ({ id, value: initialValue, update }: TitleProps) => {
                 <Input
                     ref={inputRef}
                     // onClick={enableInput}
-                    onDoubleClick={(e) => { e.stopPropagation(); enableInput() }}
+                    onClick={(e) => { e.stopPropagation(); enableInput() }}
                     onBlur={disableInput}
                     onChange={onChange}
                     onKeyDown={onKeyDown}
@@ -72,7 +72,7 @@ export const Title = ({ id, value: initialValue, update }: TitleProps) => {
                     className="h-7 px-2 focus-visible:ring-transparent" />
             ) : (
                 <Button
-                    onDoubleClick={(e) => { e.stopPropagation(); enableInput() }}
+                    onClick={(e) => { e.stopPropagation(); enableInput() }}
                     variant="ghost"
                     size="sm"
                     className="font-nomar h-auto p-1"
