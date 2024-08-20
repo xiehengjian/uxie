@@ -160,7 +160,7 @@ export const Item = ({
             )}
         >
             {/* 折叠图标 */}
-            {!!id && (
+            {!!id && (itemType === "folder") && (
                 <div
                     role="button"
                     className="h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600 mr-1"
