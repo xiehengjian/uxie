@@ -1,15 +1,18 @@
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
 
-const DynamicDocViewerPage = dynamic(
-  (() => {
-    if (typeof window !== "undefined") {
-      return import("@/components/workspace");
-    }
-  }) as any,
-  { ssr: false },
-);
+// const DynamicDocViewerPage = dynamic(
+//   (() => {
+//     if (typeof window !== "undefined") {
+//       return import("@/components/workspace");
+//     }
+//   }) as any,
+//   { ssr: false },
+// );
 
-export default DynamicDocViewerPage;
+// export default DynamicDocViewerPage;
+import Workspace from "@/components/workspace";
+
+export default Workspace;
 
 
