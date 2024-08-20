@@ -32,7 +32,7 @@ interface ItemProps {
     expanded?: boolean;
     isSearch?: boolean;
     level?: number;
-    itemType: "folder" | "document";
+    itemType?: "folder" | "document";
     onExpand?: () => void;
     label: string;// 元素展示的字符串
     onClick?: () => void;// 元素被点击时调用
