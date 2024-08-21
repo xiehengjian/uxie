@@ -57,9 +57,12 @@ const DocCard: React.FC<DocCardProps> = ({
             <Link
                 key={id}
                 href={`/f/0/${id}`}
+                // className={cn(
+                //     buttonVariants({ variant: "ghost" }),
+                //     "flex flex-col gap-2 border py-8 hover:border-blue-300",
+                // )}
                 className={cn(
-                    buttonVariants({ variant: "ghost" }),
-                    "flex flex-col gap-2 border py-8 hover:border-blue-300",
+                    "flex justify-between items-center py-2 hover:bg-gray-200",
                 )}
             >
                 <div className="w-full flex justify-between">
