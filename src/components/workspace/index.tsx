@@ -47,7 +47,6 @@ const DocViewerPage = () => {
 
   return (
     <>
-      workspace
       <ResizablePanelGroup autoSaveId="window-layout" direction="horizontal">
 
         <Navigation />
