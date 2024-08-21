@@ -17,20 +17,22 @@ import DocCard from "@/components/doc-card/card";
 
 const FolderLibraryPage = () => {
     const params = useParams();
+    const [searchQuery, setSearchQuery] = useState("");
+
     const {
         data: userDocs,
         isError,
         isLoading,
         refetch: refetchUserDocs,
     } = api.folder.getfolderDocs.useQuery({ id: params?.folderId as string });
-    const [searchQuery, setSearchQuery] = useState("");
+
 
     if (isError) return <div>Something went wrong</div>;
     if (isLoading) return <SpinnerPage />;
     if (!userDocs) return <div>Sorry no result found</div>;
 
     const combinedUserDocs = [
-        ...userDocs?.documents,
+        ...userDocs,
         // ...userDocs?.collaboratorateddocuments?.map((collab) => collab.document),
     ]?.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
 
@@ -53,9 +55,9 @@ const FolderLibraryPage = () => {
             </Link>
             <div className="flex items-start justify-between md:px-4">
                 <div>
-                    <p className="mb-1 text-2xl font-semibold tracking-tighter">
-                        Hello, {userDocs?.name || "User"}
-                    </p>
+                    {/* <p className="mb-1 text-2xl font-semibold tracking-tighter">
+                        Hello, { "User"}
+                    </p> */}
 
                     {combinedUserDocs.length === 0 ? (
                         <p className="text-muted-foreground">
@@ -67,7 +69,7 @@ const FolderLibraryPage = () => {
                 </div>
 
                 <UploadFileModal
-                    docsCount={userDocs.documents.length}
+                    docsCount={userDocs.length}
                     refetchUserDocs={refetchUserDocs}
                 />
             </div>

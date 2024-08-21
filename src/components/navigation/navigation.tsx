@@ -98,6 +98,10 @@ export const Navigation = () => {
         router.push(`/f`)
     }
 
+    const Redirect2NoFolder = () => {
+        router.push(`/f/no-folder`)
+    }
+
     return (
         <>
             <aside
@@ -123,6 +127,11 @@ export const Navigation = () => {
                     <Item
                         onClick={Redirect2F}
                         label="全部文档"
+                        icon={FilesIcon}
+                    />
+                    <Item
+                        onClick={Redirect2NoFolder}
+                        label="未归档文档"
                         icon={FilesIcon}
                     />
 

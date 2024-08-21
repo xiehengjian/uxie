@@ -13,12 +13,18 @@ export const folderRouter = createTRPCRouter({
             id: z.string(),
         }),
     ).query(async ({ ctx, input }) => {
-        return await ctx.prisma.folder.findUnique({
+        if (input.id === "no-folder") {
+            return await ctx.prisma.document.findMany({
+                where: {
+                    ownerId: ctx.session.user.id,
+                    folderId: null,
+                },
+            });
+        }
+        return await ctx.prisma.document.findMany({
             where: {
-                id: input.id,
-            },
-            include: {
-                documents: true
+                ownerId: ctx.session.user.id,
+                folderId: input.id,
             },
         });
     }),
