@@ -99,7 +99,7 @@ export const Folder = ({
                     )}
                 </div>
             ))}
-            {documents?.documents.map((document) => (
+            {documents?.map((document) => (
                 <div key={document.id}>
                     <Item
                         id={document.id}
