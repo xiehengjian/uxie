@@ -87,7 +87,8 @@ const FolderLibraryPage = () => {
                         />
                     </div>
 
-                    <div className="grid grid-cols-1 gap-2 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 ">
+                    {/* <div className="grid grid-cols-1 gap-2 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 "> */}
+                    <div className="flex flex-col gap-2">
                         {filteredUserDocs?.map((doc) => (
                             <DocCard
                                 isVectorised={doc.isVectorised}
