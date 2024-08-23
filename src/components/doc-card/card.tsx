@@ -16,6 +16,7 @@ import { useDrag, DragSourceMonitor } from 'react-dnd';
 import React from 'react';
 import { Title } from "../title/title";
 import { toast } from "sonner";
+import { useRouter } from "next/router";
 
 type DocCardProps = {
     title: string;
@@ -38,6 +39,7 @@ const DocCard: React.FC<DocCardProps> = ({
             isDragging: monitor.isDragging(),
         }),
     });
+    const router = useRouter()
 
     const { mutateAsync: updateDocName } = api.document.updateDocumentName.useMutation();
     const updateDocumentName = (id: string, name: string) => {
@@ -52,11 +54,16 @@ const DocCard: React.FC<DocCardProps> = ({
         });
     }
 
+    const onRedirectDocument = (id: string) => {
+        router.push(`/f/0/${id}`)
+    }
+
     return drag(
         <div style={{ opacity: isDragging ? 0.5 : 1 }}>
-            <Link
+            <div
                 key={id}
-                href={`/f/0/${id}`}
+                onClick={() => onRedirectDocument(id)}
+                // href={`/f/0/${id}`}
                 // className={cn(
                 //     buttonVariants({ variant: "ghost" }),
                 //     "flex flex-col gap-2 border py-8 hover:border-blue-300",
@@ -91,7 +98,7 @@ const DocCard: React.FC<DocCardProps> = ({
                 )}
                 {/* maybe display first page of the pdf here */}
                 {/* add menubar to delete, rename doc, download pdf */}
-            </Link>
+            </div>
         </div>
     );
 };
