@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import { Folder } from "../folder/folder";
 import { useRouter } from "next/router";
 import { AllDocsIcon, NewPageIcon } from '@blocksuite/icons/rc';
+import UploadFileModal from "../workspace/upload-file-modal";
 
 
 export const Navigation = () => {
@@ -103,6 +104,13 @@ export const Navigation = () => {
         router.push(`/f/no-folder`)
     }
 
+    const {
+        data: userDocs,
+        isError,
+        isLoading,
+        refetch: refetchUserDocs,
+    } = api.user.getUsersDocs.useQuery();
+
     return (
         <>
             <aside
@@ -159,6 +167,10 @@ export const Navigation = () => {
                     onClick={resetWidth}
                     // className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
                     className="opacity-100 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0" />
+                <UploadFileModal
+                    docsCount={userDocs?.documents.length as number}
+                    refetchUserDocs={refetchUserDocs}
+                />
             </aside>
             <div
                 ref={navbarRef}

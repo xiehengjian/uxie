@@ -1,16 +1,8 @@
 import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { SpinnerPage } from "@/components/ui/spinner";
 import { CustomTooltip } from "@/components/ui/tooltip";
-import UploadFileModal from "@/components/workspace/upload-file-modal";
 import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { ChevronLeftIcon, SearchIcon, Sparkle } from "lucide-react";
-import Link from "next/link";
-import { useCallback, useState } from "react";
-import { Navigation } from "@/components/navigation/navigation";
-import FLayout from '@/components/layout/layout'
 import type { ReactElement } from 'react'
 import { useDrag, DragSourceMonitor } from 'react-dnd';
 import React from 'react';
