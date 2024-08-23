@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Item } from "../item/item";
 import { toast } from "sonner";
 import { PageIcon, FolderIcon } from '@blocksuite/icons/rc';
+import { SpinnerPage } from "../ui/spinner";
 
 interface FolderListProps {
     parentFolderId?: string;
@@ -35,6 +36,8 @@ export const Folder = ({
         isLoading,
         refetch: refetchUserDocs,
     } = api.folder.getSubFolders.useQuery({ parentId: parentFolderId });
+
+    if (isLoading) return <SpinnerPage />;
 
     const {
         data: documents

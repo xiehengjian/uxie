@@ -171,7 +171,6 @@ export const Navigation = () => {
                 {/* 
               fixed：使该元素固定在视口中，不随滚动而移动。
                     bottom-0：将该元素定位在底部。
-                    left-0：将该元素定位在左侧。
                     w-full：使该元素宽度充满父容器。
                     left-0和right-0：使该元素水平方向上居中。
               */}
