@@ -37,7 +37,7 @@ export const Folder = ({
         refetch: refetchUserDocs,
     } = api.folder.getSubFolders.useQuery({ parentId: parentFolderId });
 
-    if (isLoading) return <SpinnerPage />;
+
 
     const {
         data: documents
@@ -67,6 +67,8 @@ export const Folder = ({
             error: "Failed to move",
         });
     }
+
+    if (isLoading) return <SpinnerPage />;
 
     return (
         <>
