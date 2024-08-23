@@ -3,7 +3,6 @@ import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SpinnerPage } from "@/components/ui/spinner";
 import { CustomTooltip } from "@/components/ui/tooltip";
-import UploadFileModal from "@/components/workspace/upload-file-modal";
 import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { ChevronLeftIcon, SearchIcon, Sparkle } from "lucide-react";
@@ -68,10 +67,10 @@ const FolderLibraryPage = () => {
                     )} */}
                 </div>
 
-                <UploadFileModal
+                {/* <UploadFileModal
                     docsCount={userDocs.length}
                     refetchUserDocs={refetchUserDocs}
-                />
+                /> */}
             </div>
 
             {combinedUserDocs.length > 0 && (
