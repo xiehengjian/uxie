@@ -2,7 +2,7 @@ import { ElementRef, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { SidebarIcon } from '@blocksuite/icons/rc';
+import { SidebarIcon, ImportIcon } from '@blocksuite/icons/rc';
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { ChevronLeftIcon, FilesIcon, FoldersIcon, PlusCircle } from "lucide-react";
@@ -147,7 +147,7 @@ export const Navigation = () => {
                         isMobile && "opacity-100",
                     )}
                 >
-                    <SidebarIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
+                    <ImportIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
                 </div>
                 <div className="mt-4">
 
