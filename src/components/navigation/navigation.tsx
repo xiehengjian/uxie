@@ -11,7 +11,7 @@ import { api } from "@/lib/api";
 import { toast } from "sonner";
 import { Folder } from "../folder/folder";
 import { useRouter } from "next/router";
-import { PlusIcon, PageIcon, NewPageIcon } from '@blocksuite/icons/rc';
+import { AllDocsIcon, NewPageIcon } from '@blocksuite/icons/rc';
 
 
 export const Navigation = () => {
@@ -128,12 +128,12 @@ export const Navigation = () => {
                     <Item
                         onClick={Redirect2F}
                         label="全部文档"
-                        icon={PageIcon}
+                        icon={AllDocsIcon}
                     />
                     <Item
                         onClick={Redirect2NoFolder}
                         label="未归档文档"
-                        icon={PageIcon}
+                        icon={AllDocsIcon}
                     />
 
 

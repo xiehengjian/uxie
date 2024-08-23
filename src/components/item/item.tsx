@@ -176,7 +176,8 @@ export const Item = ({
             ) : (
                 <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" />
             )} */}
-            <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" />
+            <Icon/>
+            {/* <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" /> */}
             {/* 文件夹则应用Title组件 */}
             {id ? (
                 (itemType === "folder") ? (

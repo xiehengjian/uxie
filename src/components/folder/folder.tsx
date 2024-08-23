@@ -5,7 +5,7 @@ import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { Item } from "../item/item";
 import { toast } from "sonner";
-import { FileIcon, AllDocsIcon } from '@blocksuite/icons/rc';
+import { PageIcon, FolderIcon } from '@blocksuite/icons/rc';
 
 interface FolderListProps {
     parentFolderId?: string;
@@ -85,7 +85,7 @@ export const Folder = ({
                         id={folder.id}
                         onClick={() => onRedirect(folder.id)}
                         label={folder.name}
-                        icon={AllDocsIcon}
+                        icon={FolderIcon}
                         // documentIcon={document.icon}
                         active={params?.folderId === folder.id}
                         level={level}
@@ -105,7 +105,7 @@ export const Folder = ({
                         id={document.id}
                         onClick={() => onRedirectDocument(document.id)}
                         label={document.title}
-                        icon={FileIcon}
+                        icon={PageIcon}
                         // documentIcon={document.icon}
                         active={params?.docId === document.id}
                         level={level}
