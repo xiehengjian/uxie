@@ -255,7 +255,7 @@ const DocViewer = ({
         </Link> */}
 
         {/* <p className="line-clamp-1 font-semibold">{doc?.title ?? docId}</p> */}
-        <Title id={docId as string} value={doc?.title} update={updateDocumentName} />
+        {/* <Title id={docId as string} value={doc?.title} update={updateDocumentName} /> */}
       </div>
       <div className="relative h-full w-full">
         <PdfReader
