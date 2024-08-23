@@ -23,18 +23,18 @@ const TABS = [
     icon: <AlbumIcon size={20} />,
     isNew: false,
   },
-  {
-    value: "chat",
-    tooltip: "Chat with the pdf",
-    icon: <MessagesSquareIcon size={20} />,
-    isNew: false,
-  },
-  {
-    value: "flashcards",
-    tooltip: "Generate flashcards from the pdf",
-    icon: <Layers size={20} />,
-    isNew: false,
-  },
+  // {
+  //   value: "chat",
+  //   tooltip: "Chat with the pdf",
+  //   icon: <MessagesSquareIcon size={20} />,
+  //   isNew: false,
+  // },
+  // {
+  //   value: "flashcards",
+  //   tooltip: "Generate flashcards from the pdf",
+  //   icon: <Layers size={20} />,
+  //   isNew: false,
+  // },
 ];
 
 const tabNames = TABS.map((tab) => tab.value);
