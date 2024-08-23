@@ -4,8 +4,8 @@ import { useState } from "react"
 import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { Item } from "../item/item";
-import { FileIcon, FolderIcon } from "lucide-react";
 import { toast } from "sonner";
+import { FileIcon, FolderIcon } from '@blocksuite/icons/rc';
 
 interface FolderListProps {
     parentFolderId?: string;

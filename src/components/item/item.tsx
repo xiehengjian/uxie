@@ -15,7 +15,7 @@ import { useDrop } from 'react-dnd';
 import {
     ChevronDown,
     ChevronRight,
-    LucideIcon,
+
     MoreHorizontal,
     Plus,
     Trash,
@@ -24,6 +24,8 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Title } from "../title/title";
 import { type } from "os";
+import { SVGProps } from 'react';
+
 
 interface ItemProps {
     id?: string;
@@ -36,7 +38,7 @@ interface ItemProps {
     onExpand?: () => void;
     label: string;// 元素展示的字符串
     onClick?: () => void;// 元素被点击时调用
-    icon: LucideIcon; // 元素的图标
+    icon: (props: SVGProps<SVGSVGElement>) => import("react/jsx-runtime").JSX.Element // 元素的图标
     onDrop?: (documentId: string, folderId: string) => void;
 }
 
