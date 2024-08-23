@@ -101,7 +101,7 @@ const PdfReader = ({
       },
     });
 
-  let scrollViewerTo = (highlight: any) => {};
+  let scrollViewerTo = (highlight: any) => { };
 
   const scrollToHighlightFromHash = () => {
     const highlight = getHighlightById(parseIdFromHash());
@@ -114,10 +114,14 @@ const PdfReader = ({
   const { sendMessage } = useChatStore();
 
   return (
+    // 直接就是一个pdf加载器。
     <PdfLoader url={docUrl} beforeLoad={<SpinnerPage />}>
+
       {(pdfDocument) => (
+        // 然后是pdf高亮
         <PdfHighlighter
           pdfDocument={pdfDocument}
+          // 通过alt键开启区域摘录
           enableAreaSelection={(event) => event.altKey}
           onScrollChange={resetHash}
           // pdfScaleValue="page-width"
@@ -125,9 +129,10 @@ const PdfReader = ({
             scrollViewerTo = scrollTo;
             scrollToHighlightFromHash();
           }}
+          // 当选择结束后，会展示一个弹窗
           onSelectionFinished={(
-            position,
-            content,
+            position, // 传入选择的位置
+            content, // 传入选择的内容
             hideTipAndSelection,
             transformSelection,
           ) => {
