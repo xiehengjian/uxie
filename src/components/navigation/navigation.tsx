@@ -138,6 +138,16 @@ export const Navigation = () => {
                     */}
                     <SidebarIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
                 </div>
+                <div
+                    onClick={collapse}
+                    role="button"
+                    className={cn(
+                        "h-6 w-6  right-0 transition px-3 py-2 w-full",
+                        isMobile && "opacity-100",
+                    )}
+                >
+                    <SidebarIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
+                </div>
                 <div className="mt-4">
 
                     <Item
