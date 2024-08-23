@@ -51,7 +51,7 @@ export const Folder = ({
     }
 
     const onRedirectDocument = (folderId: string) => {
-        router.push(`/f/0/${folderId}`)
+        router.push(`/f/documents/${folderId}`)
     }
 
     const { mutateAsync: moveToFolder } = api.document.moveToFolder.useMutation();
