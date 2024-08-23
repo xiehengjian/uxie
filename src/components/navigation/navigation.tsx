@@ -143,7 +143,7 @@ export const Navigation = () => {
                     role="button"
 
                     className={cn(
-                        "h-6 w-6  right-0 transition px-3 py-2 absolute top-3 right-2",
+                        "h-6 w-6  transition   right-2",
                         isMobile && "opacity-100",
                     )}
                 >
