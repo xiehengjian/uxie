@@ -121,6 +121,12 @@ export const Navigation = () => {
                     )}
                 >
 
+                    {/*             
+                        h-6:高6个单位
+                        w-6:宽6个单位
+                        text-muted-foreground：设置元素文本的前景色为灰色
+                        rounded-sm: 设置元素的边框为一个小的圆角
+                    */}
                     <SidebarIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
                 </div>
                 <div className="mt-4">
