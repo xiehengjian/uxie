@@ -33,10 +33,10 @@ const WorkspaceComponent = dynamic(
 export default DynamicDocViewerPage;
 
 
-DynamicDocViewerPage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <FLayout>
-      {page}
-    </FLayout>
-  )
-}
+// DynamicDocViewerPage.getLayout = function getLayout(page: ReactElement) {
+//   return (
+//     <FLayout>
+//       {page}
+//     </FLayout>
+//   )
+// }
