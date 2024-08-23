@@ -76,10 +76,3 @@ const DocViewerPage = () => {
 export default DocViewerPage;
 
 
-DocViewerPage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <FLayout>
-      {page}
-    </FLayout>
-  )
-}

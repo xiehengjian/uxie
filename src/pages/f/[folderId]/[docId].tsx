@@ -1,6 +1,7 @@
+import FLayout from "@/components/layout/layout";
 import dynamic from "next/dynamic";
 import { useState } from 'react';
-
+import type { ReactElement } from 'react'
 
 const DynamicDocViewerPage = () => {
   return (
@@ -32,3 +33,10 @@ const WorkspaceComponent = dynamic(
 export default DynamicDocViewerPage;
 
 
+DynamicDocViewerPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <FLayout>
+      {page}
+    </FLayout>
+  )
+}
