@@ -56,12 +56,12 @@ const DocViewerPage = () => {
         </div>
         <ResizablePanel defaultSize={50} minSize={30}>
           <div className="h-full min-w-[25vw] flex-1">
-            <Sidebar
+            {/* <Sidebar
               canEdit={doc.userPermissions.canEdit}
               username={doc.userPermissions.username}
               isOwner={doc.userPermissions.isOwner}
               isVectorised={doc.isVectorised}
-            />
+            /> */}
           </div>
         </ResizablePanel>
       </ResizablePanelGroup>

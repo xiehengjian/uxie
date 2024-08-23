@@ -40,7 +40,7 @@ const FolderLibraryPage = () => {
     );
 
     return (
-        <div className="flex w-full max-w-5xl flex-col px-4 py-2 lg:px-16">
+        <div className="flex w-full flex-col px-4 py-2 lg:px-16">
 
             {/* <Link
                 href="/"
