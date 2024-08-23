@@ -17,6 +17,7 @@ import React from 'react';
 import { Title } from "../title/title";
 import { toast } from "sonner";
 import { useRouter } from "next/router";
+import { PageIcon, FolderIcon } from '@blocksuite/icons/rc';
 
 type DocCardProps = {
     title: string;
@@ -60,6 +61,7 @@ const DocCard: React.FC<DocCardProps> = ({
 
     return drag(
         <div style={{ opacity: isDragging ? 0.5 : 1 }}>
+            <PageIcon/>
             <div
                 key={id}
                 onClick={() => onRedirectDocument(id)}
