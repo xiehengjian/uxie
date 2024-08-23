@@ -74,7 +74,7 @@ const UserLibraryPage = () => {
       </div>
 
       {combinedUserDocs.length > 0 && (
-        <div className="mt-2 flex flex-col justify-center md:px-4">
+        <div className="mt-2 flex flex-col justify-center md:px-1">
           <div className="relative my-4">
             <SearchIcon className="absolute left-3 top-[50%] h-4 w-4 -translate-y-[50%] text-muted-foreground" />
             <Input
