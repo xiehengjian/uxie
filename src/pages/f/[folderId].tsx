@@ -59,13 +59,13 @@ const FolderLibraryPage = () => {
                         Hello, { "User"}
                     </p> */}
 
-                    {combinedUserDocs.length === 0 ? (
+                    {/* {combinedUserDocs.length === 0 ? (
                         <p className="text-muted-foreground">
                             You have no files yet, upload one now!
                         </p>
                     ) : (
                         <p className="text-muted-foreground">Here are your files</p>
-                    )}
+                    )} */}
                 </div>
 
                 <UploadFileModal
