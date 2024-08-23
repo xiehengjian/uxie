@@ -13,6 +13,7 @@ import { Folder } from "../folder/folder";
 import { useRouter } from "next/router";
 import { AllDocsIcon, NewPageIcon } from '@blocksuite/icons/rc';
 import UploadFileModal from "../workspace/upload-file-modal";
+import { SpinnerPage } from "../ui/spinner";
 
 
 export const Navigation = () => {
@@ -110,7 +111,7 @@ export const Navigation = () => {
         isLoading,
         refetch: refetchUserDocs,
     } = api.user.getUsersDocs.useQuery();
-
+    if (isLoading) return <SpinnerPage />;
     return (
         <>
             <aside
