@@ -17,16 +17,17 @@ import {
     ChevronRight,
 
     DotIcon,
-
+    TrashIcon,
     MoreHorizontal,
     Plus,
-    Trash,
+
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Title } from "../title/title";
 import { type } from "os";
 import { SVGProps } from 'react';
+import { EditIcon } from '@blocksuite/icons/rc';
 
 
 interface ItemProps {
@@ -223,8 +224,13 @@ export const Item = ({
                             forceMount
                         >
                             <DropdownMenuItem onClick={onArchive}>
-                                <Trash className="h-4 w-4 mr-2" />
-                                Delete
+                                <EditIcon className="h-4 w-4 mr-2" />
+                                重命名
+                            </DropdownMenuItem>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem onClick={onArchive}>
+                                <TrashIcon className="h-4 w-4 mr-2" />
+                                删除
                             </DropdownMenuItem>
                             <DropdownMenuSeparator />
                             {/* <div className="text-xs text-muted-foreground p-2">

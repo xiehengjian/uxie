@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/navigation/navigation";
 import Features from "@/components/other/features";
 import SlideUpWhenVisible from "@/components/other/slide-up-when-visible";
-import YoutubeEmbed from "@/components/other/youtube-embed";
+// import YoutubeEmbed from "@/components/other/youtube-embed";
 import { Button } from "@/components/ui/button";
 import ButtonRotatingBackgroundGradient from "@/components/ui/button-rotating-bg-gradient";
 import {
@@ -16,6 +16,7 @@ import Balancer from "react-wrap-balancer";
 export default function Home() {
   return (
     <>
+      <Navigation />
       <div className="absolute top-0 -z-10 h-full w-full bg-white">
         <div className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[20%] translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.5)] opacity-50 blur-[80px]" />
         <div className="hidden md:flex absolute left-0 bottom-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.5)] opacity-50 blur-[80px]" />
@@ -103,7 +104,7 @@ const HeroSection = () => {
           </Button>
         </Link>
       </div>
-      <YoutubeEmbed />
+      {/* <YoutubeEmbed /> */}
     </SlideUpWhenVisible>
   );
 };
