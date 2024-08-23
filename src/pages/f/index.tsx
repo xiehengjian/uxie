@@ -43,7 +43,7 @@ const UserLibraryPage = () => {
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col px-4 py-2 lg:px-16">
 
-      <Link
+      {/* <Link
         href="/"
         className={cn(
           buttonVariants({ variant: "ghost" }),
@@ -52,12 +52,12 @@ const UserLibraryPage = () => {
       >
         <ChevronLeftIcon className="mr-2 h-4 w-4" />
         Back
-      </Link>
+      </Link> */}
       <div className="flex items-start justify-between md:px-4">
         <div>
-          <p className="mb-1 text-2xl font-semibold tracking-tighter">
+          {/* <p className="mb-1 text-2xl font-semibold tracking-tighter">
             Hello, {userDocs?.name || "User"}
-          </p>
+          </p> */}
 
           {combinedUserDocs.length === 0 ? (
             <p className="text-muted-foreground">
