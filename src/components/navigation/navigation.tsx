@@ -167,10 +167,13 @@ export const Navigation = () => {
                     onClick={resetWidth}
                     // className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
                     className="opacity-100 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0" />
-                <UploadFileModal
-                    docsCount={userDocs?.documents.length as number}
-                    refetchUserDocs={refetchUserDocs}
-                />
+                <div className="fixed bottom-0 left-0 w-full">
+                    <UploadFileModal
+                        docsCount={userDocs?.documents.length as number}
+                        refetchUserDocs={refetchUserDocs}
+
+                    /></div>
+
             </aside>
             <div
                 ref={navbarRef}
