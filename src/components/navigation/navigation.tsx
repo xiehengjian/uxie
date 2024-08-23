@@ -139,15 +139,19 @@ export const Navigation = () => {
                     <SidebarIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
                 </div>
                 <div
-                    onClick={collapse}
+                    // onClick={collapse}
                     role="button"
 
                     className={cn(
-                        "h-6 w-6  transition  absolute top-3 right-2",
+                        "h-6 w-6  py-2 transition  absolute  right-2",
                         isMobile && "opacity-100",
                     )}
                 >
-                    <ImportIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
+                    <UploadFileModal
+                        docsCount={userDocs?.documents.length as number}
+                        refetchUserDocs={refetchUserDocs}
+
+                    />
                 </div>
                 <div className="mt-4">
 
@@ -185,12 +189,7 @@ export const Navigation = () => {
                     w-full：使该元素宽度充满父容器。
                     left-0和right-0：使该元素水平方向上居中。
               */}
-                <div className="fixed bottom-0 left-0 right-0 w-full">
-                    <UploadFileModal
-                        docsCount={userDocs?.documents.length as number}
-                        refetchUserDocs={refetchUserDocs}
 
-                    /></div>
 
             </aside>
             <div

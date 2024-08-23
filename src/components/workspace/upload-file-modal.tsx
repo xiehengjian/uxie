@@ -14,12 +14,13 @@ import { PLANS } from "@/lib/constants";
 import { useUploadThing } from "@/lib/uploadthing";
 import { cn } from "@/lib/utils";
 import { useDropzone } from "@uploadthing/react";
-import { XIcon } from "lucide-react";
+import {  XIcon } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useCallback, useState } from "react";
 import { toast } from "sonner";
 import { generateClientDropzoneAccept } from "uploadthing/client";
 import { z } from "zod";
+import { SidebarIcon, ImportIcon } from '@blocksuite/icons/rc';
 
 const UploadFileModal = ({
   refetchUserDocs,
@@ -136,9 +137,10 @@ const UploadFileModal = ({
               return;
             }
           }}
-          className={cn(buttonVariants())}
+        // className={cn(buttonVariants())}
         >
-          Upload File
+          {/* Upload File */}
+          <ImportIcon className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600" />
         </div>
       </DialogTrigger>
       <DialogContent hideClose={true}>
