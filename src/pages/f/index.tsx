@@ -40,7 +40,7 @@ const UserLibraryPage = () => {
   );
 
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-col px-4 py-2 lg:px-16">
+    <div className="flex w-full flex-col px-4 py-2 lg:px-16">
 
       {/* <Link
         href="/"
@@ -74,7 +74,7 @@ const UserLibraryPage = () => {
       </div>
 
       {combinedUserDocs.length > 0 && (
-        <div className="mt-2 flex flex-col justify-center">
+        <div className="mt-2 flex flex-col justify-center md:px-4">
           <div className="relative my-4">
             <SearchIcon className="absolute left-3 top-[50%] h-4 w-4 -translate-y-[50%] text-muted-foreground" />
             <Input
