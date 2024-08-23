@@ -74,7 +74,7 @@ const DocCard: React.FC<DocCardProps> = ({
                 )}
             >
                 <div className="w-full flex justify-between">
-                    <PageIcon />
+                    <PageIcon className="shrink-0 h-[25px] mr-2 text-muted-foreground" />
                     <p className="mr-auto min-w-0 truncate"> <Title id={id} value={title} update={updateDocumentName} /></p>
 
                     <CustomTooltip
