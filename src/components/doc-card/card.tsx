@@ -61,7 +61,6 @@ const DocCard: React.FC<DocCardProps> = ({
 
     return drag(
         <div style={{ opacity: isDragging ? 0.5 : 1 }}>
-            <PageIcon/>
             <div
                 key={id}
                 onClick={() => onRedirectDocument(id)}
@@ -75,6 +74,7 @@ const DocCard: React.FC<DocCardProps> = ({
                 )}
             >
                 <div className="w-full flex justify-between">
+                    <PageIcon />
                     <p className="mr-auto min-w-0 truncate"> <Title id={id} value={title} update={updateDocumentName} /></p>
 
                     <CustomTooltip
