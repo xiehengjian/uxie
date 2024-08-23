@@ -26,7 +26,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Title } from "../title/title";
 import { type } from "os";
-import { SVGProps } from 'react';
+import { SVGProps, useRef } from 'react';
 import { EditIcon } from '@blocksuite/icons/rc';
 
 
@@ -152,6 +152,9 @@ export const Item = ({
         });
     }
 
+
+
+
     return drop(
         // 一个大的div容器，内部包裹中一些元素
         <div
@@ -223,10 +226,10 @@ export const Item = ({
                             side="right"
                             forceMount
                         >
-                            <DropdownMenuItem onClick={onArchive}>
+                            {/* <DropdownMenuItem onClick={() => { }}>
                                 <EditIcon className="h-4 w-4 mr-2" />
                                 重命名
-                            </DropdownMenuItem>
+                            </DropdownMenuItem> */}
                             <DropdownMenuSeparator />
                             <DropdownMenuItem onClick={onArchive}>
                                 <TrashIcon className="h-4 w-4 mr-2" />
