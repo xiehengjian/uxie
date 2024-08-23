@@ -168,7 +168,14 @@ export const Navigation = () => {
                     onClick={resetWidth}
                     // className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
                     className="opacity-100 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0" />
-                <div className="fixed bottom-0 left-0 w-full">
+                {/* 
+              fixed：使该元素固定在视口中，不随滚动而移动。
+                    bottom-0：将该元素定位在底部。
+                    left-0：将该元素定位在左侧。
+                    w-full：使该元素宽度充满父容器。
+                    left-0和right-0：使该元素水平方向上居中。
+              */}
+                <div className="fixed bottom-0 left-0 right-0 w-full">
                     <UploadFileModal
                         docsCount={userDocs?.documents.length as number}
                         refetchUserDocs={refetchUserDocs}
