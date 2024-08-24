@@ -98,11 +98,11 @@ export const Navigation = () => {
     }
     const router = useRouter()
     const Redirect2F = () => {
-        router.push(`/f`)
+        router.push(`/`)
     }
 
     const Redirect2NoFolder = () => {
-        router.push(`/f/no-folder`)
+        router.push(`/folders/no-folder`)
     }
 
     const {

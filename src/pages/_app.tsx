@@ -28,7 +28,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }: AppPropsWithLayout) => {
   const router = useRouter();
-  const isReader = router.pathname.startsWith("/f/");
+  const isReader = router.pathname.startsWith("/");
   const getLayout = Component.getLayout ?? ((page) => page)
   return (<DndProvider backend={HTML5Backend}>
     {getLayout(

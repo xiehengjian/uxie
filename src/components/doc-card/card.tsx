@@ -48,7 +48,7 @@ const DocCard: React.FC<DocCardProps> = ({
     }
 
     const onRedirectDocument = (id: string) => {
-        router.push(`/f/documents/${id}`)
+        router.push(`/documents/${id}`)
     }
 
     return drag(
